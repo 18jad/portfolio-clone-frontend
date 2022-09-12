@@ -29,22 +29,33 @@ form.addEventListener("submit", (e) => {
   try {
     checkEmail();
   } catch (err) {
+    emailInput.classList.add("error");
     emailError.textContent = err.message;
   }
   try {
     checkName();
   } catch (err) {
+    nameInput.classList.add("error");
     nameError.textContent = err.message;
   }
   try {
     checkMessage();
   } catch (err) {
+    messageInput.classList.add("error");
     messageError.textContent = err.message;
   }
   try {
     checkPhone();
   } catch (err) {
+    telInput.classList.add("error");
     phoneError.textContent = err.message;
+  }
+  if (checkEmail() && checkName() && checkMessage() && checkPhone()) {
+    alert("Message sent successfully");
+    emailInput.value = "";
+    messageInput.value = "";
+    telInput.value = "";
+    nameInput.value = "";
   }
 });
 
