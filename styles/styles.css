@@ -22,14 +22,16 @@ header {
   justify-content: space-around;
   gap: 190px;
   /*padding: 7px 0;*/
-  padding: 20px 0;
+  padding: 23px 0;
   background: var(--blue-gray);
   color: var(--white);
+  transition: padding 300ms ease-in-out;
 }
 
 header p {
   font-size: 28px;
   font-weight: 700;
+  transition: font-size 300ms ease-in-out;
 }
 
 header ul {
@@ -51,6 +53,13 @@ header ul li {
 
 header ul li:hover {
   color: var(--bright-green);
+}
+
+header.scroll {
+  padding: 10px 0;
+}
+header.scroll p {
+  font-size: 24px;
 }
 
 .intro-section {
