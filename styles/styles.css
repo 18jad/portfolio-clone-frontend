@@ -452,3 +452,27 @@ footer {
 .hidden {
   display: none;
 }
+
+#name-error,
+#email-error,
+#phone-error,
+#message-error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+input.error,
+textarea.error {
+  border-color: red;
+}
+
+input.error ~ .bar:before,
+textarea.error ~ .bar:before {
+  background: red;
+}
+
+input.error ~ label,
+textarea.error ~ label {
+  color: red;
+}
