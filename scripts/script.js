@@ -26,38 +26,56 @@ document.addEventListener("scroll", (e) => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  // if everything is ok pass and if there was an error remove it
   try {
     checkEmail();
+    removeError(emailInput, emailError);
   } catch (err) {
     emailInput.classList.add("error");
     emailError.textContent = err.message;
   }
   try {
     checkName();
+    removeError(nameInput, nameError);
   } catch (err) {
     nameInput.classList.add("error");
     nameError.textContent = err.message;
   }
   try {
     checkMessage();
+    removeError(messageInput, messageError);
   } catch (err) {
     messageInput.classList.add("error");
     messageError.textContent = err.message;
   }
   try {
     checkPhone();
+    removeError(telInput, phoneError);
   } catch (err) {
     telInput.classList.add("error");
     phoneError.textContent = err.message;
   }
+
+  // if everything is validated and ok, remove all errors and clear inputs
   if (checkEmail() && checkName() && checkMessage() && checkPhone()) {
     alert("Message sent successfully");
     emailInput.value = "";
     messageInput.value = "";
     telInput.value = "";
     nameInput.value = "";
+    removeError(emailInput, emailError);
+    removeError(nameInput, nameError);
+    removeError(messageInput, messageError);
+    removeError(telInput, phoneError);
   }
 });
+
+function removeError(input, errorField) {
+  if (input.classList.contains("error")) {
+    input.classList.remove("error");
+  }
+  errorField.textContent = "";
+}
 
 function checkEmail() {
   let email = emailInput.value;
