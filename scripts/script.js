@@ -47,6 +47,7 @@ function checkEmail() {
       );
   }
   // success
+  return true;
 }
 
 function checkPhone() {
@@ -72,6 +73,17 @@ function checkPhone() {
     }
   }
   // success
+  return true;
+}
+
+function checkMessage() {
+  let message = messageInput.value;
+  // if message is less than 100 characters return error
+  if (message.length < 100) {
+    throw new Error("Message should be at least 100 characters long.");
+  }
+  // success
+  return true;
 }
 
 window.onload = checkHeader;
