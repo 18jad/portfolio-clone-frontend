@@ -22,7 +22,7 @@ document.addEventListener("scroll", (e) => {
 inputs.forEach((input) => {
   input.addEventListener("input", (e) => {
     if (
-      nameInput.value.trim().length >= 3 &&
+      nameInput.value.trim().length >= 5 &&
       emailInput.value.trim() != "" &&
       telInput.value.trim() != "" &&
       messageInput.value.trim().length > 5
