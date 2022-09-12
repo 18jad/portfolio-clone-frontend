@@ -12,6 +12,10 @@
   font-family: Montserrat;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 header {
   position: fixed;
   top: 0;
@@ -40,6 +44,10 @@ header ul {
   justify-content: center;
   list-style: none;
   gap: 20px;
+}
+
+header ul a {
+  text-decoration: none;
 }
 
 header ul li {
