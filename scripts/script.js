@@ -7,12 +7,16 @@ const messageInput = document.getElementById("message-input");
 
 const inputs = [nameInput, emailInput, telInput, messageInput];
 
-document.addEventListener("scroll", (e) => {
+const checkHeader = () => {
   if (window.scrollY > 20) {
     header.classList.add("scroll");
   } else {
     header.classList.remove("scroll");
   }
+};
+
+document.addEventListener("scroll", (e) => {
+  checkHeader();
 });
 
 inputs.forEach((input) => {
@@ -29,3 +33,5 @@ inputs.forEach((input) => {
     }
   });
 });
+
+window.onload = checkHeader;
