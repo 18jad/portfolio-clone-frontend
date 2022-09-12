@@ -22,11 +22,6 @@ document.addEventListener("scroll", (e) => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  try {
-    checkEmail();
-  } catch (err) {
-    console.log(err);
-  }
 });
 
 function checkEmail() {
@@ -39,7 +34,7 @@ function checkEmail() {
     let splittedEmail = email.split("@");
     let firstHalf = splittedEmail[0];
     let secondHalf = splittedEmail[1].split(".")[0];
-    console.log(secondHalf, firstHalf);
+
     // check if string before @ length is 3 or more
     if (firstHalf.length < 3)
       throw new Error(
@@ -51,6 +46,32 @@ function checkEmail() {
         "Characters after @ symbol must be at least 5 characters",
       );
   }
+  // success
+}
+
+function checkPhone() {
+  let number = telInput.value;
+  // check if number start with +961
+  if (number.slice(0, 4) != "+961") {
+    throw new Error("Number should start with +961.");
+  } else {
+    // check if number start with 3 or 7
+    let startingNumber = number[4];
+
+    // check if number is formated well and not short
+    if (startingNumber == null || startingNumber == undefined) {
+      throw new Error("Number too short or badly formated.");
+    } else if (startingNumber == "3") {
+      if (number.trim().length != 11) {
+        throw new Error("Number should be 7 digits long.");
+      }
+    } else {
+      if (number.trim().length != 12) {
+        throw new Error("Number should be 8 digits long.");
+      }
+    }
+  }
+  // success
 }
 
 window.onload = checkHeader;
