@@ -86,4 +86,13 @@ function checkMessage() {
   return true;
 }
 
+function checkName() {
+  let name = nameInput.value;
+  if (name.length < 5) {
+    throw new Error("Name should be at least 5 characters long.");
+  }
+  // success
+  return true;
+}
+
 window.onload = checkHeader;
