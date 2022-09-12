@@ -5,6 +5,10 @@ const emailInput = document.getElementById("email-input");
 const telInput = document.getElementById("tel-input");
 const messageInput = document.getElementById("message-input");
 const form = document.querySelector("form");
+const nameError = document.getElementById("name-error");
+const emailError = document.getElementById("email-error");
+const phoneError = document.getElementById("phone-error");
+const messageError = document.getElementById("message-error");
 
 const inputs = [nameInput, emailInput, telInput, messageInput];
 
@@ -22,6 +26,26 @@ document.addEventListener("scroll", (e) => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  try {
+    checkEmail();
+  } catch (err) {
+    emailError.textContent = err.message;
+  }
+  try {
+    checkName();
+  } catch (err) {
+    nameError.textContent = err.message;
+  }
+  try {
+    checkMessage();
+  } catch (err) {
+    messageError.textContent = err.message;
+  }
+  try {
+    checkPhone();
+  } catch (err) {
+    phoneError.textContent = err.message;
+  }
 });
 
 function checkEmail() {
