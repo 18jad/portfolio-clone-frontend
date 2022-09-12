@@ -109,6 +109,9 @@ header ul li:hover {
   justify-content: center;
   flex-direction: column;
   gap: 15px;
+}
+
+.portfolio-section .header-container {
   color: var(--blue-gray);
 }
 
@@ -167,4 +170,61 @@ header ul li:hover {
 .project:hover .plus {
   opacity: 0.9;
   cursor: pointer;
+}
+
+.aboutme-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--bright-green);
+  color: var(--white);
+  padding: 100px 0;
+  gap: 30px;
+}
+
+.paragraph-container {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  gap: 20px;
+  max-width: 80%;
+  margin: auto;
+}
+
+.paragraph-container p {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 500;
+  width: 33%;
+}
+
+.download-button svg {
+  height: 20px;
+}
+
+.download-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 25px;
+  border-radius: 8px;
+  font-size: 18px;
+  gap: 10px;
+  border: 2px solid var(--white);
+  cursor: pointer;
+  transition: background 150ms ease-in-out, color 150ms ease-in-out;
+}
+
+.download-button:hover {
+  background: var(--white);
+  color: black;
+}
+
+.contactme-section {
+  padding: 80px 0;
+}
+
+.contactme-section .header-container {
+  color: var(--blue-gray);
 }
