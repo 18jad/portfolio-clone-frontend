@@ -12,6 +12,10 @@
   font-family: Montserrat;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 header {
   position: fixed;
   top: 0;
