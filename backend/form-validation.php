@@ -17,4 +17,3 @@ try {
 
 $json = json_encode($response);
 echo $json;
-echo $mysqli;
