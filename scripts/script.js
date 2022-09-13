@@ -9,8 +9,7 @@ const nameError = document.getElementById("name-error");
 const emailError = document.getElementById("email-error");
 const phoneError = document.getElementById("phone-error");
 const messageError = document.getElementById("message-error");
-
-const inputs = [nameInput, emailInput, telInput, messageInput];
+const formResult = document.getElementById("form-result");
 
 const checkHeader = () => {
   if (window.scrollY > 20) {
@@ -25,8 +24,8 @@ document.addEventListener("scroll", (e) => {
 });
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
   // if everything is ok pass and if there was an error remove it
+  e.preventDefault();
   try {
     checkEmail();
     removeError(emailInput, emailError);
@@ -52,13 +51,14 @@ form.addEventListener("submit", (e) => {
     checkPhone();
     removeError(telInput, phoneError);
   } catch (err) {
+    e.preventDefault()
     telInput.classList.add("error");
     phoneError.textContent = err.message;
   }
 
-  // if everything is validated and ok, remove all errors and clear inputs
+  // if everything is validated and ok, send form and remove all errors and clear inputs
   if (checkEmail() && checkName() && checkMessage() && checkPhone()) {
-    alert("Message sent successfully");
+    sendForm(nameInput.value, emailInput.value, telInput.value, messageInput.value);
     emailInput.value = "";
     messageInput.value = "";
     telInput.value = "";
@@ -69,6 +69,38 @@ form.addEventListener("submit", (e) => {
     removeError(telInput, phoneError);
   }
 });
+
+// interacting with database api
+function sendForm(name, email, phone, message) {
+  let api = '/bootstrapform/backend/form-validation.php';
+  let settings = {
+    method: 'POST',
+    body: new URLSearchParams({
+      name,
+      email,
+      phone, 
+      message
+    })
+  }
+  fetch(api, settings)
+    .then(response => response.json())
+    .then(data => {
+      formResult.textContent = data.message;
+      if (data.status == 200) {
+        formResult.dataset.role = "success";
+        setTimeout(() => { 
+          formResult.textContent = "";
+          formResult.dataset.role = "";
+        }, 3000)
+      } else {
+        formResult.dataset.role = "error";
+        setTimeout(() => { 
+          formResult.textContent = "";
+          formResult.dataset.role = "";
+        }, 3000)
+      } 
+    });
+}
 
 function removeError(input, errorField) {
   if (input.classList.contains("error")) {

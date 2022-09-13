@@ -132,7 +132,8 @@
             </div>
         </div>
         <div class="contact-container">
-            <form action="javascript:void(0)">
+            <form action="./backend/form-validation.php" method="post">
+                <p id="form-result" data-role=""></p>
                 <div class="input-container">
                     <input type="text" required id="name-input">
                     <label for="Name">Full Name</label>
@@ -164,6 +165,7 @@
                 <button type="submit" class="submit-btn">Send</button>
             </form>
         </div>
+        <a href="messages.html" style="margin-top: 30px;">Check messages table</a>
     </div>
     <div class="info-section">
         <div class="location info">
