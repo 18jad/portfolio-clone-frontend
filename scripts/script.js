@@ -9,6 +9,7 @@ const nameError = document.getElementById("name-error");
 const emailError = document.getElementById("email-error");
 const phoneError = document.getElementById("phone-error");
 const messageError = document.getElementById("message-error");
+const formResult = document.getElementById("form-result");
 
 const checkHeader = () => {
   if (window.scrollY > 20) {
@@ -84,9 +85,20 @@ function sendForm(name, email, phone, message) {
   fetch(api, settings)
     .then(response => response.json())
     .then(data => {
+      formResult.textContent = data.message;
       if (data.status == 200) {
-        
-      }
+        formResult.dataset.role = "success";
+        setTimeout(() => { 
+          formResult.textContent = "";
+          formResult.dataset.role = "";
+        }, 3000)
+      } else {
+        formResult.dataset.role = "error";
+        setTimeout(() => { 
+          formResult.textContent = "";
+          formResult.dataset.role = "";
+        }, 3000)
+      } 
     });
 }
 
