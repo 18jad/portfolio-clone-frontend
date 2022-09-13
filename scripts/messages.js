@@ -14,7 +14,8 @@ fetch(url)
             // create table cell
             const tdEmail = document.createElement('td');
             // append email to cell
-            tdEmail.textContent = email;
+            tdEmail.textContent = email; 
+            tdEmail.classList.add("emailTd");
             // append cell to row
             tr.appendChild(tdEmail);
 
