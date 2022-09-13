@@ -25,7 +25,6 @@ document.addEventListener("scroll", (e) => {
 });
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
   // if everything is ok pass and if there was an error remove it
   try {
     checkEmail();
@@ -52,6 +51,7 @@ form.addEventListener("submit", (e) => {
     checkPhone();
     removeError(telInput, phoneError);
   } catch (err) {
+    e.preventDefault()
     telInput.classList.add("error");
     phoneError.textContent = err.message;
   }
