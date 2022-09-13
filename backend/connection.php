@@ -5,4 +5,4 @@
     $db_pass = null;
     $db_name = "form-data";
 
-    $mysqli = new mysqli($host, $db_user, $db_pass, $db_name);
+    $db = new mysqli($host, $db_user, $db_pass, $db_name);
