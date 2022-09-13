@@ -10,8 +10,6 @@ const emailError = document.getElementById("email-error");
 const phoneError = document.getElementById("phone-error");
 const messageError = document.getElementById("message-error");
 
-const inputs = [nameInput, emailInput, telInput, messageInput];
-
 const checkHeader = () => {
   if (window.scrollY > 20) {
     header.classList.add("scroll");
@@ -26,6 +24,7 @@ document.addEventListener("scroll", (e) => {
 
 form.addEventListener("submit", (e) => {
   // if everything is ok pass and if there was an error remove it
+  e.preventDefault();
   try {
     checkEmail();
     removeError(emailInput, emailError);
@@ -56,9 +55,9 @@ form.addEventListener("submit", (e) => {
     phoneError.textContent = err.message;
   }
 
-  // if everything is validated and ok, remove all errors and clear inputs
+  // if everything is validated and ok, send form and remove all errors and clear inputs
   if (checkEmail() && checkName() && checkMessage() && checkPhone()) {
-    alert("Message sent successfully");
+    sendForm(nameInput.value, emailInput.value, telInput.value, messageInput.value);
     emailInput.value = "";
     messageInput.value = "";
     telInput.value = "";
@@ -69,6 +68,23 @@ form.addEventListener("submit", (e) => {
     removeError(telInput, phoneError);
   }
 });
+
+// interacting with database api
+function sendForm(name, email, phone, message) {
+  let api = '/bootstrapform/backend/form-validation.php';
+  let settings = {
+    method: 'POST',
+    body: new URLSearchParams({
+      name,
+      email,
+      phone, 
+      message
+    })
+  }
+  fetch(api, settings)
+    .then(response => response.json())
+    .then(data => console.log(data));
+}
 
 function removeError(input, errorField) {
   if (input.classList.contains("error")) {
