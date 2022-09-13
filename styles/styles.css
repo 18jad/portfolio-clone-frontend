@@ -476,3 +476,19 @@ input.error ~ label,
 textarea.error ~ label {
   color: red;
 }
+
+#form-result {
+  margin-top: 30px;
+  text-align: center;
+  padding: 5px 0;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+#form-result[data-role = "success"] {
+  background: var(--bright-green);
+}
+
+#form-result[data-role = "error"] {
+  background: red;
+}

@@ -83,7 +83,11 @@ function sendForm(name, email, phone, message) {
   }
   fetch(api, settings)
     .then(response => response.json())
-    .then(data => console.log(data));
+    .then(data => {
+      if (data.status == 200) {
+        
+      }
+    });
 }
 
 function removeError(input, errorField) {
