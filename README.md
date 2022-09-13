@@ -12,4 +12,4 @@
 <img src="https://i.ibb.co/8j1H0Mt/Screenshot-2022-09-14-023817.png">
 
 # Credits
-Credits for <a href="https://startbootstrap.com/previews/freelancer" target="_blank">this website</a> i clone the design from it.
+Credits for <a href="https://startbootstrap.com/previews/freelancer" target="_blank">this website</a> i cloned the design from it.
