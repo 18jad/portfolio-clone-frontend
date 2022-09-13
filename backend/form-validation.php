@@ -1,5 +1,6 @@
 <?php
 include("./connection.php");
+<<<<<<< HEAD
 
 $name = $_POST['name'];
 $email = $_POST['email'];
@@ -17,3 +18,6 @@ try {
 
 $json = json_encode($response);
 echo $json;
+=======
+echo $mysqli;
+>>>>>>> fd69b851ddc4854aafb4778568fd47bea8c45d02
