@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 include("./connection.php");
 // select messages and emails
 $query = $db->prepare("SELECT email, message FROM receivedforms");
