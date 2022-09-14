@@ -1,0 +1,19 @@
+{
+  "functions": {
+    "index.php": {
+      "runtime": "vercel-php@0.4.0"
+    },
+    "messages.php": {
+      "runtime": "vercel-php@0.4.0"
+    },
+    "backend/connection.php": {
+      "runtime": "vercel-php@0.4.0"
+    },
+    "backend/form-validation.php": {
+      "runtime": "vercel-php@0.4.0"
+    },
+     "backend/get-messages.php": {
+      "runtime": "vercel-php@0.4.0"
+    }
+  }
+}
