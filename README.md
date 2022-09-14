@@ -1,5 +1,6 @@
 # Fullstack portfolio
 - Portfolio with form submission and a page to view submissions (Page is public and not protected just for the purpose of learning and developing)
+- VS Code didn't let me close php tag for a reason
 
 # Screenshot
 - Homepage
